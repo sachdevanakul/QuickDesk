@@ -1,0 +1,32 @@
+<!-- ADMINE/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - QuickDesk</title>
+  <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>QuickDesk Admin Panel</h1>
+      <nav>
+        <a href="manage-users.html">Manage Users</a>
+        <a href="manage-categories.html">Manage Categories</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="card">
+        <h2>📊 Quick Overview</h2>
+        <ul>
+          <li><strong>Total Users:</strong> <span id="userCount">--</span></li>
+          <li><strong>Total Categories:</strong> <span id="catCount">--</span></li>
+        </ul>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin-script.js"></script>
+</body>
+</html>

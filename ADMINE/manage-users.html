@@ -1,0 +1,66 @@
+<!-- ADMINE/manage-users.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Users - QuickDesk Admin</title>
+  <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Manage Users</h1>
+    <nav>
+      <a href="dashboard.html">Dashboard</a> |
+      <a href="manage-categories.html">Manage Categories</a>
+    </nav>
+  </header>
+
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Current Role</th>
+          <th>Change Role</th>
+        </tr>
+      </thead>
+      <tbody id="userTable">
+        <!-- Dynamic user rows will be inserted here -->
+      </tbody>
+    </table>
+  </main>
+
+  <script>
+    // Dummy data - later fetched from backend
+    const users = [
+      { name: "Nakul", email: "nakul@example.com", role: "Admin" },
+      { name: "Ponepo", email: "ponepo@example.com", role: "Agent" },
+      { name: "vishu", email: "vishu@example.com", role: "User" }
+    ];
+
+    const userTable = document.getElementById("userTable");
+
+    users.forEach(user => {
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>${user.name}</td>
+        <td>${user.email}</td>
+        <td>${user.role}</td>
+        <td>
+          <select onchange="alert('Role change for ${user.name} to ' + this.value)">
+            <option value="User" ${user.role === "User" ? "selected" : ""}>User</option>
+            <option value="Agent" ${user.role === "Agent" ? "selected" : ""}>Agent</option>
+            <option value="Admin" ${user.role === "Admin" ? "selected" : ""}>Admin</option>
+          </select>
+        </td>
+      `;
+
+      userTable.appendChild(row);
+    });
+  </script>
+
+</body>
+</html>
