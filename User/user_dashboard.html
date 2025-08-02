@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuickDesk - User Dashboard</title>
+  <link rel="stylesheet" href="user_style.css" >
+</head>
+<body>
+    
+<header><h1>QuickDesk</h1></header>
+
+<div class="container">
+  <aside>
+    <ul>
+      <li class="active" onclick="showTab('create', event)">Create Ticket</li>
+      <li onclick="showTab('myTickets', event)">My Tickets</li>
+      <li onclick="showTab('statusTab', event)">Ticket Status</li>
+      <li onclick="showTab('profile', event)">My Profile</li>
+      <li onclick="showTab('notifications', event)">Notifications</li>
+    </ul>
+  </aside>
+
+  <main>
+    <!-- Create Ticket -->
+    <section id="create" class="tab active">
+      <h2>Create a New Ticket</h2>
+      <form id="ticketForm">
+        <input type="text" id="subject" placeholder="Subject" required />
+        <textarea id="description" placeholder="Describe your issue" required></textarea>
+        <select id="category">
+          <option value="technical">Technical</option>
+          <option value="billing">Billing</option>
+          <option value="general">General</option>
+        </select>
+        <input type="file" id="attachment" />
+        <button type="submit">Submit Ticket</button>
+      </form>
+    </section>
+
+    <!-- My Tickets -->
+    <section id="myTickets" class="tab">
+      <h2>My Tickets</h2>
+      <div class="filters">
+        <input type="text" id="searchInput" placeholder="Search subject..." oninput="renderTickets()" />
+        <select id="statusFilter" onchange="renderTickets()">
+          <option value="">All Statuses</option>
+          <option value="Open">Open</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Resolved">Resolved</option>
+          <option value="Closed">Closed</option>
+        </select>
+        <select id="categoryFilter" onchange="renderTickets()">
+          <option value="">All Categories</option>
+          <option value="technical">Technical</option>
+          <option value="billing">Billing</option>
+          <option value="general">General</option>
+        </select>
+      </div>
+      <div id="ticketsContainer"></div>
+    </section>
+
+    <!-- Ticket Status -->
+    <section id="statusTab" class="tab">
+      <h2>Ticket Status Overview</h2>
+      <div id="statusSections"></div>
+    </section>
+
+    <!-- My Profile -->
+    <section id="profile" class="tab">
+        <h2>My Profile</h2>
+        <p><strong>Name:</strong> John Doe</p>
+        <p><strong>Email:</strong> user@example.com</p>
+        <p><strong>Role:</strong> End User</p>
+
+        <h3 style="margin-top: 20px;">Change Password</h3>
+        <form id="changePasswordForm" onsubmit="changePassword(event)">
+            <input type="password" id="currentPassword" placeholder="Current Password" required />
+            <input type="password" id="newPassword" placeholder="New Password" required />
+            <input type="password" id="confirmPassword" placeholder="Confirm New Password" required />
+            <button type="submit">Change Password</button>
+        </form>
+        <p id="passwordMessage" style="color: green; font-weight: bold;"></p>
+    </section>
+
+
+    <!-- Notifications -->
+    <section id="notifications" class="tab">
+      <h2>Notifications</h2>
+      <p>No new notifications.</p>
+    </section>
+  </main>
+</div>
+    
+<script src="user_script.js"></script>
+
+</body>
+</html>
