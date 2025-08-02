@@ -1,6 +1,18 @@
 let tickets = [];
   let ticketId = 1;
 
+  // Manual test ticket
+tickets.push({
+  id: ticketId++,
+  subject: "Bug Report",
+  description: "Monthly report fails with 500 error.",
+  category: "technical",
+  status: "Resolved",
+  comments: ["Looks fixed now!"],
+  createdAt: new Date().toISOString()
+});
+
+renderTickets();
   document.getElementById("ticketForm").addEventListener("submit", function (e) {
     e.preventDefault();
     const subject = document.getElementById("subject").value;
