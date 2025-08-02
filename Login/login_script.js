@@ -57,7 +57,7 @@ document.querySelector('.sign-in form').addEventListener('submit', async functio
     if (data.role === 'user') {
       window.location.href = '../User/user_dashboard.html';
     } else if (data.role === 'agent') {
-      window.location.href = '../Agent/agent_dashboard.html';
+      window.location.href = '../Agent_Dashboard/agent_dashboard.html';
     } else if (data.role === 'admin') {
       window.location.href = '../ADMINE/dashboard.html';
     }
